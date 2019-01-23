@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "6dae4e86-a322-46d8-b85c-5272deb627c9",
+		"name": "masaleh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "{{host}}/product/products"
+			},
+			"response": []
+		},
+		{
+			"name": "categories - main categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "{{host}}/category/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "categories - sub categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/category/categories?id=17",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"category",
+						"categories"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "17",
+							"description": "برای گرفتن زیر دسته ها "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart - items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/cart/lines?customer_id=1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"cart",
+						"lines"
+					],
+					"query": [
+						{
+							"key": "customer_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart - remove item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "line_id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{host}}/cart/remove_line"
+			},
+			"response": []
+		},
+		{
+			"name": "cart - add item",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer_id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "17",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{host}}/cart/add_line"
+			},
+			"response": []
+		},
+		{
+			"name": "cart - checkout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customer_id",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "user_request_date",
+							"value": "2018-11-08",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "user_address",
+							"value": "شیراز خیابان اردیبهشت برج it",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{host}}/cart/check_out"
+			},
+			"response": []
+		},
+		{
+			"name": "customer - register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "09359012419",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{host}}/customer/register"
+			},
+			"response": []
+		},
+		{
+			"name": "customer - checkuser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "09359012419",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/customer/check_code?mobile=09359012419&code=6618",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"customer",
+						"check_code"
+					],
+					"query": [
+						{
+							"key": "mobile",
+							"value": "09359012419"
+						},
+						{
+							"key": "code",
+							"value": "6618"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer - profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "09359012419",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/customer/profile?mobile=09359012419&code=6618",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"customer",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "mobile",
+							"value": "09359012419"
+						},
+						{
+							"key": "code",
+							"value": "6618"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orders - list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "09359012419",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "{{host}}/order/orders"
+			},
+			"response": []
+		},
+		{
+			"name": "orders - order detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "mobile",
+							"value": "09359012419",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/order/order_detail?order_id=2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"order",
+						"order_detail"
+					],
+					"query": [
+						{
+							"key": "order_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "66224614-9d50-45a4-a065-fa149122ee93",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "58496b20-9bb6-4714-b6ed-69ae7e82029d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "39ecf818-b84e-4ac3-a883-72202555b0eb",
+			"key": "host",
+			"value": "http://beniz.fanacmp.ir/masaleh/api/index.php",
+			"type": "string",
+			"description": ""
+		}
+	]
+}
